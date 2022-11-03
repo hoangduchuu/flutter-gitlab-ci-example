@@ -1,0 +1,24 @@
+name: "BUILD ANDROID & IOS "
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature/CI
+
+jobs:
+  # Build job
+  build_ios:
+    name: Build IOS
+    runs-on: macos-latest
+    steps:
+    - uses: haya14busa/action-cond@v1
+      id: condval
+      with:
+        cond: ${{ github.event_name == 'develop' }}
+        if_true: "Toi la develop"
+        if_false: "Toi la thang khac"
+    - name: Use conditional value
+      run: echo "${{ steps.condval.outputs.value }}"
+
+
