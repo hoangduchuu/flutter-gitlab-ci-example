@@ -12,13 +12,16 @@ jobs:
     name: Build IOS
     runs-on: macos-latest
     steps:
+    - name: Get Branch Name 
+      id: branch 
+      run:  echo ::set-output name=branch::${GITHUB_REF#refs/*/}
+
     - uses: haya14busa/action-cond@v1
       id: condval
       with:
-        cond: ${{ github.head_ref == 'develop' }}
-        if_true: "Toi la develop"
-        if_false: "Toi la thang khac"
+        cond: ${{ steps.branch.outputs.branch == 'develop' }}
+        if_true: "value for developdevelopdevelopdevelopdevelop request event"
+        if_false: "value for not notnote pull request event"
     - name: Use conditional value
-      run: echo "${GITHUB_REF#refs/*/}   ${{ steps.condval.outputs.value } "
-
+      run: echo "${{ steps.condval.outputs.value }}"
 
