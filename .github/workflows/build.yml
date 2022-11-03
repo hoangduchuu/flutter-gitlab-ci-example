@@ -19,6 +19,6 @@ jobs:
         if_true: "Toi la develop"
         if_false: "Toi la thang khac"
     - name: Use conditional value
-      run: echo "${{ steps.condval.outputs.value }} ${{ github.ref }}  "
+      run: echo "${{ steps.condval.outputs.value }} ${{ github.ref }}  ${{ steps.branch.outputs.branch }} "
 
 
