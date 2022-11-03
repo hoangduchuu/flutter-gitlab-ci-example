@@ -23,5 +23,5 @@ jobs:
         if_true: "value for developdevelopdevelopdevelopdevelop request event"
         if_false: "value for not notnote pull request event"
     - name: Use conditional value
-      run: echo "${{ steps.condval.outputs.value }} --- - - ${{$BRANCH_NAME}} "
+      run: echo "${{ steps.condval.outputs.value }} --- - - ${$BRANCH_NAME} "
 
