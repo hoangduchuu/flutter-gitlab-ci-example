@@ -15,7 +15,7 @@ jobs:
     - uses: haya14busa/action-cond@v1
       id: condval
       with:
-        cond: ${{ ${GITHUB_REF#refs/*/} == 'develop' }}
+        cond: ${{ GITHUB_REF#refs/*/ == 'develop' }}
         if_true: "Toi la develop"
         if_false: "Toi la thang khac"
     - name: Use conditional value
